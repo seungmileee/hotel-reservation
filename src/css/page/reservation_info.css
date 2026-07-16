@@ -1,0 +1,189 @@
+/* 테이블 섹션 (table) */
+.table-wrap {
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: var(--font-light);
+  font-size: 14px;
+  /* table-layout: fixed; */
+}
+
+th,
+td {
+  padding: 20px;
+  text-align: center;
+}
+
+thead th {
+  background-color: #d8d8d8;
+  font-family: var(--font-light);
+  font-weight: 300;
+}
+
+tbody tr td {
+  border: 1px solid #d8d8d8;
+}
+
+tbody tr:hover {
+  background-color: #d8d8d8;
+}
+
+.full {
+  padding: 70px 0;
+}
+
+.half {
+  padding: 36px 0;
+}
+
+.small {
+  padding: 20px 0;
+}
+
+/* 세부사항 박스 섹션 (term_container) */
+.term-container {
+  margin: 60px 0;
+  width: 100%;
+  display: flex;
+  font-family: var(--font-light);
+}
+
+.term-container h3 {
+  font-size: 25px;
+  margin-bottom: 34px;
+}
+
+.term-container p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.condition-wrapper,
+.meal-wrapper,
+.detail-wrapper {
+  height: 270px;
+  padding-top: 60px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
+
+.condition-content,
+.meal-content,
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.condition-wrapper {
+  background-color: #efefef;
+}
+
+.meal-wrapper {
+  background-color: #e4e4e4;
+}
+
+.detail-wrapper {
+  background-color: #c7c7c7;
+}
+
+/* 취소 및 환불 규정 섹션 (provision-container) */
+.provision-container {
+  border: 1px solid #d8d8d8;
+  width: 100%;
+}
+
+.provision-title {
+  padding: 17.5px 20px;
+  background-color: #d8d8d8;
+  font-family: var(--font-medium);
+  font-size: 16px;
+}
+
+.provision-content {
+  padding: 22px 20px;
+}
+
+.provision-content p {
+  font-family: var(--font-light);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* 반응형 (breakpoint: 1000px) */
+@media (max-width: 1000px) {
+  .container {
+    padding: 40px 20px;
+  }
+
+  .reservation-title {
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  /* 표는 9열이라 좁은 화면에선 가로 스크롤로 넘긴다 */
+  .table-wrap {
+    width: 100%;
+    cursor: grab;
+    user-select: none;
+    align-self: stretch;
+    overflow-x: auto;
+  }
+
+  .table-wrap::-webkit-scrollbar {
+    display: none;
+  }
+
+  table {
+    width: auto; /* 100%면 스크롤이 안 생긴다 */
+    min-width: 700px; /* 이 폭 이하로는 안 줄어들게 */
+    font-size: 11px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    white-space: nowrap; /* 글자가 줄바꿈되지 않게 */
+  }
+
+  .full {
+    padding: 30px 0;
+  }
+
+  .half {
+    padding: 16px 0;
+  }
+
+  .small {
+    padding: 10px 0;
+  }
+
+  /* 세부사항 3박스는 세로로 쌓는다 */
+  .term-container {
+    flex-direction: column;
+    margin: 30px 0;
+    font-size: 15px;
+  }
+
+  .condition-wrapper,
+  .meal-wrapper,
+  .detail-wrapper {
+    padding: 24px 20px;
+    align-items: center;
+  }
+
+  .term-container h3 {
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  .term-container p {
+    font-size: 12px;
+  }
+}

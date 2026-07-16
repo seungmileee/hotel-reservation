@@ -1,0 +1,392 @@
+@font-face {
+  font-family: 'KoroadLight';
+  src: url(../assets/font/KOROAD_Light.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'KoroadMedium';
+  src: url(../assets/font/KOROAD_Medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'KoroadBold';
+  src: url(../assets/font/KOROAD_Bold.ttf) format('truetype');
+}
+
+/* 공통 css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 120%;
+  letter-spacing: -3%;
+}
+
+:root {
+  --font-bold: 'KoroadBold';
+  --font-medium: 'KoroadMedium';
+  --font-light: 'KoroadLight';
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.reservation-title {
+  margin-bottom: 60px;
+  font-family: var(--font-light);
+  font-size: 30px;
+}
+
+/* 커스텀 컴포넌트 my-header 스타일링 */
+header {
+  display: block;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 0;
+  border-bottom: 1px solid #d8d8d8;
+  z-index: 1000;
+  background-color: white;
+}
+
+header h1 {
+  font-family: var(--font-bold);
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 120%;
+  letter-spacing: -3%;
+  margin-bottom: 30px;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbar {
+  display: flex;
+  gap: 8px;
+}
+
+.navbar > li {
+  position: relative;
+}
+
+.navbar span {
+  font-family: var(--font-medium);
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 0%;
+  padding: 8px;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+.sub {
+  /* border: 1px solid red; */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 131px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+  background-color: white;
+}
+
+.sub li {
+  font-family: var(--font-light);
+  padding: 17px 20px;
+}
+
+.sub li a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+/* .navbar > li:hover .sub {
+  opacity: 1;
+  visibility: visible;
+} */
+
+.sub li a:hover {
+  color: #818181;
+}
+
+/* 커스텀 컴포넌트 my-footer 스타일링 */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  height: 350px;
+  background-color: #1d1d1d;
+  color: white;
+}
+
+footer h1 {
+  font-family: var(--font-bold);
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 120%;
+  letter-spacing: -3%;
+  margin-bottom: 17px;
+}
+
+.icon-container {
+  display: flex;
+  gap: 20px;
+}
+
+.icon-container i {
+  font-size: 35px;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+  font-family: var(--font-light);
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 120%;
+  letter-spacing: -3%;
+}
+
+.addr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-number {
+  display: flex;
+  gap: 12px;
+}
+
+.terms-container {
+  display: flex;
+  gap: 12px;
+}
+
+/* 커스텀 컴포넌트 to-the-top 스타일링 */
+to-the-top button {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  width: 50px;
+  height: 50px;
+  background-color: #255f38;
+  border: none;
+  z-index: 5000;
+}
+
+to-the-top i {
+  font-size: 30px;
+  color: white;
+}
+
+/* 커스텀 컴포넌트 my-banner 스타일링 */
+.banner-container {
+  height: 400px;
+  position: relative;
+}
+
+.banner-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 60%;
+  display: block;
+}
+
+.banner-text-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner-text-wrapper h2 {
+  font-family: var(--font-bold);
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.banner-text-wrapper p {
+  font-family: var(--font-light);
+  font-size: 25px;
+}
+
+.navbar > li.open .sub {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* 반응형 css (breakpoint: 1000px) */
+
+/* 반응형 - custom header */
+@media (max-width: 1000px) {
+  header {
+    padding: 0;
+    align-items: stretch;
+  }
+
+  header h1 {
+    font-size: 30px;
+    margin-bottom: 0;
+    padding: 11px 0;
+    text-align: center;
+  }
+
+  nav {
+    position: relative; /* .sub의 기준점 */
+    border-top: 1px solid #d8d8d8;
+    width: 100%;
+  }
+
+  .navbar {
+    padding: 10px 13px;
+    gap: 22px;
+    justify-content: center;
+  }
+
+  .navbar span {
+    padding: 0;
+    font-size: 14px;
+  }
+
+  .navbar > li {
+    position: static; /* li가 기준이 되지 않도록 */
+  }
+
+  .sub {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 7px 15px; /* 안쪽 여백 */
+    border-top: 1px solid #d8d8d8; /* nav와 구분선 */
+    border-bottom: 1px solid #d8d8d8;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* hover로는 열리지 않게 막는다 */
+  .navbar > li:hover .sub {
+    display: none;
+  }
+
+  /* 클릭해서 열린 메뉴의 서브만 보인다 */
+  .navbar > li.open .sub {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  /* .navbar > li.open .sub {
+    opacity: 1;
+    visibility: visible;
+  } */
+
+  .sub li {
+    padding: 0; /* 데스크톱의 17px 20px 해제 */
+  }
+
+  .sub li a {
+    font-size: 14px;
+  }
+}
+
+/* 반응형 - custom footer */
+@media (max-width: 1000px) {
+  footer {
+    height: 350px;
+    padding: 39px 30px;
+    gap: 20px;
+  }
+
+  footer h1 {
+    font-size: 40px;
+    margin-bottom: 0;
+  }
+
+  .icon-container i {
+    font-size: 22px;
+  }
+
+  .addr-container {
+    text-align: center; /* 주소가 두 줄로 접힐 때 가운데 정렬 */
+    font-size: 13px;
+  }
+
+  .footer-number {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    margin: 10px 0;
+  }
+
+  /* 모바일 버전에서는 to-the-top 숨기기 */
+  to-the-top {
+    display: none;
+  }
+
+  /* 배너 반응형 */
+  .banner-container {
+    height: 150px;
+  }
+
+  .banner-text-wrapper h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .banner-text-wrapper p {
+    font-size: 14px;
+  }
+}
+
+/* 공통 css에도 반응형 추가 */
+@media (max-width: 1000px) {
+  .container {
+    align-items: stretch;
+  }
+
+  .reservation-title {
+    text-align: center;
+    font-weight: 300;
+  }
+}
+
+/* 마우스가 있는 기기에서만 hover 드롭다운이 동작한다 */
+@media (hover: hover) {
+  .navbar > li:hover .sub {
+    opacity: 1;
+    visibility: visible;
+  }
+}

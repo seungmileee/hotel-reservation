@@ -1,0 +1,121 @@
+<!-- 메인, 홈 페이지 -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reservation</title>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/page/index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/ffec4fd550.js" crossorigin="anonymous"></script>
+    <script type="module" src="../js/component/my_header.js"></script>
+    <script type="module" src="../js/component/my_footer.js"></script>
+    <script type="module" src="../js/component/to_the_top.js"></script>
+  </head>
+  <body>
+    <my-header></my-header>
+    <div class="main-container">
+      <div class="swiper-container">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="../assets/img/home_swiper/home_swiper_1_1.jpg" />
+              <div class="text-wrapper">
+                <h3>SWEET MOMENT</h3>
+                <button>SEE MORE</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="../assets/img/home_swiper/home_swiper_2_2.jpg" />
+              <div class="text-wrapper">
+                <h3>URBAN RESORT</h3>
+                <button>SEE MORE</button>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="../assets/img/home_swiper/home_swiper_3_3.jpg" />
+              <div class="text-wrapper">
+                <h3>RELAX & RELIEF</h3>
+                <button>SEE MORE</button>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <div class="content-container">
+        <div class="rooms-section">
+          <h3 class="content-title">ROOMS</h3>
+          <div class="room-list">
+            <img class="room-img" src="../assets/img/home_rooms/home_room_1.jpg" />
+            <img class="room-img" src="../assets/img/home_rooms/home_room_2.jpg" />
+            <img class="room-img" src="../assets/img/home_rooms/home_room_3.jpg" />
+            <img class="room-img" src="../assets/img/home_rooms/home_room_4.jpg" />
+            <img class="room-img" src="../assets/img/home_rooms/home_room_5.jpg" />
+            <img class="room-img" src="../assets/img/reservation_deluxe/deluxe_2.jpg" />
+            <img class="room-img" src="../assets/img/reservation_premium/premium_2.jpg" />
+            <img class="room-img" src="../assets/img/reservation_sweet/sweet_2.jpg" />
+          </div>
+          <div class="modal" id="modal">
+            <div class="modal-content">
+              <img id="modal-img" src="" />
+            </div>
+          </div>
+        </div>
+        <div class="event-section">
+          <h3 class="content-title">EVENT</h3>
+          <div class="event-list">
+            <div class="event-wrapper">
+              <img src="../assets/img/home_event/home_event_1.jpg" />
+              <div>봄 특가 이벤트</div>
+            </div>
+            <div class="event-wrapper">
+              <img src="../assets/img/home_event/home_event_2.jpg" />
+              <div>5월 주요행사</div>
+            </div>
+            <div class="event-wrapper">
+              <img src="../assets/img/home_event/home_event_3.jpg" />
+              <div>새로운 객실을 기대해 주세요.</div>
+            </div>
+            <div class="event-wrapper">
+              <img src="../assets/img/home_event/home_event_4.jpg" />
+              <div>스파 프로그램 할인</div>
+            </div>
+            <div class="event-wrapper">
+              <img src="../assets/img/home_event/home_event_5.jpg" />
+              <div>조식 할인 패키지</div>
+            </div>
+            <div class="event-wrapper">
+              <img src="../assets/img/home_event/home_event_6.jpg" />
+              <div>애프터눈 티 프로모션</div>
+            </div>
+            <div class="event-wrapper">
+              <img src="../assets/img/home_event/home_event_7.jpg" />
+              <div>인피니티풀 무료 개장 혜택</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="award-container">
+        <!-- <img src="../assets/img/home_award/hotel_lobby.jpg" /> -->
+        <div class="award-text-section">
+          <div class="award-text-title">
+            <i class="fa-solid fa-award fa-canvas-roomy"></i>
+            <h2>2024 BEST HOTEL</h2>
+          </div>
+          <div class="award-text-content">
+            <p>Can one ever remember love</p>
+            <p>Its like trying to summon up</p>
+            <p>the smell of rose sin a cellar.</p>
+            <p>you might see a rose. but never the perfume.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <my-footer></my-footer>
+    <to-the-top></to-the-top>
+    <script src="../js/page/index.js"></script>
+  </body>
+</html>

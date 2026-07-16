@@ -1,0 +1,91 @@
+<!-- 실시간 예약 - 예약 등록 페이지 (등록 폼 / ROOM과 날짜를 넘겨받아 채운다) -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reservation</title>
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/page/reservation_form.css" />
+    <script src="https://kit.fontawesome.com/ffec4fd550.js" crossorigin="anonymous"></script>
+    <script type="module" src="../js/component/my_header.js"></script>
+    <script type="module" src="../js/component/my_footer.js"></script>
+    <script type="module" src="../js/component/to_the_top.js"></script>
+    <script type="module" src="../js/component/my_banner.js"></script>
+  </head>
+  <body>
+    <my-header></my-header>
+    <my-banner title="RESERVATION" content="실시간예약" image="../assets/img/reservation_var/reservation_live.jpg"></my-banner>
+    <div class="container">
+      <h3 class="reservation-title">예약 등록</h3>
+      <div class="form-container">
+        <div class="form-section">
+          <div class="form-row">
+            <label>ROOM</label>
+            <input type="text" id="form-room" readonly />
+          </div>
+          <div class="form-row">
+            <label>추가인원</label>
+            <input type="text" id="form-guest" readonly />
+          </div>
+          <div class="form-row mobile-only">
+            <label>입실</label>
+            <input type="text" id="form-checkin" readonly />
+          </div>
+          <div class="form-row mobile-only">
+            <label>퇴실</label>
+            <input type="text" id="form-checkout" readonly />
+          </div>
+          <div class="form-row">
+            <label for="form-name">예약명</label>
+            <div class="input-wrap">
+              <input type="text" id="form-name" placeholder="예약명을 입력해 주세요." />
+              <p class="error-text" id="name-error"></p>
+            </div>
+          </div>
+          <div class="form-row">
+            <label for="form-phone">전화번호</label>
+            <div class="input-wrap">
+              <input type="text" id="form-phone" placeholder="- 제외하고 입력해 주세요." />
+              <p class="error-text" id="phone-error"></p>
+            </div>
+          </div>
+          <div class="form-row total-row">
+            <label>총 합계</label>
+            <span><span id="total-price">0</span> 원</span>
+          </div>
+        </div>
+        <div class="calendar-section">
+          <div class="calendar-header">
+            <button id="prev-month">&lt;</button>
+            <span id="current-month"></span>
+            <button id="next-month">&gt;</button>
+          </div>
+          <div class="weekdays">
+            <div>일</div>
+            <div>월</div>
+            <div>화</div>
+            <div>수</div>
+            <div>목</div>
+            <div>금</div>
+            <div>토</div>
+          </div>
+          <div class="days" id="days"></div>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button id="cancel-btn">취소</button>
+        <button id="submit-btn">예약하기</button>
+      </div>
+    </div>
+    <my-footer></my-footer>
+    <to-the-top></to-the-top>
+    <div class="modal" id="alert-modal">
+      <div class="modal-box">
+        <p id="modal-text"></p>
+        <button id="modal-close">확인</button>
+      </div>
+    </div>
+    <script src="../js/page/reservation_form.js"></script>
+  </body>
+</html>

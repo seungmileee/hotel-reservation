@@ -13,11 +13,11 @@ let myReservations = [];
 let seasons = [];
 let prices = [];
 
-const roomsURL = `http://localhost:3000/rooms`;
-const holidayURL = `http://localhost:3000/holiday`;
-const reservationURL = `http://localhost:3000/reservation`;
-const seasonURL = `http://localhost:3000/season`;
-const priceURL = `http://localhost:3000/price`;
+const roomsURL = `rooms`;
+const holidayURL = `holiday`;
+const reservationURL = `reservation`;
+const seasonURL = `season`;
+const priceURL = `price`;
 
 // CALENDAR 섹션
 // 입실일이 있는 달을 기준으로 달력을 보여준다
@@ -344,5 +344,5 @@ function openModal(text) {
 
 // 예약 완료 모달은 확인을 누르면 메인으로 돌아간다
 modalClose.addEventListener('click', () => {
-  location.href = 'index.html';
+  location.href = 'html/index.html';
 });

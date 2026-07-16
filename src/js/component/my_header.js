@@ -2,7 +2,7 @@ class MyHeader extends HTMLElement {
   connectedCallback() {
     const header = document.createElement('header');
     header.innerHTML = `
-    <h1 class="title"><a href="../html/index.html">H</a></h1>
+    <h1 class="title"><a href="html/index.html">H</a></h1>
       <nav>
         <ul class="navbar">
           <li>
@@ -23,8 +23,8 @@ class MyHeader extends HTMLElement {
           <li>
             <span>RESERVATION</span>
             <ul class="sub">
-              <li><a href="../html/reservation_info.html">예약안내</a></li>
-              <li><a href="../html/reservation_live.html">실시간예약</a></li>
+              <li><a href="html/reservation_info.html">예약안내</a></li>
+              <li><a href="html/reservation_live.html">실시간예약</a></li>
             </ul>
           </li>
           <li>

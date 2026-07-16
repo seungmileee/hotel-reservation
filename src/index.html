@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hotel Reservation</title>
+    <!-- 루트(/) 진입 시 메인 페이지(html/)로 이동 -->
+    <meta http-equiv="refresh" content="0; url=html/" />
+  </head>
+  <body>
+    <p>메인 페이지로 이동 중… <a href="html/">계속</a></p>
+    <script>
+      // base href 주입 여부와 무관하게 앱 루트 기준 html/ 로 이동
+      (function () {
+        var base = document.querySelector("base");
+        var root = base ? base.getAttribute("href") || "" : "";
+        if (root && root.charAt(root.length - 1) !== "/") root += "/";
+        location.replace(root + "html/");
+      })();
+    </script>
+  </body>
+</html>

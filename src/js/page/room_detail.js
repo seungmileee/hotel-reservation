@@ -45,7 +45,7 @@ const params = new URLSearchParams(location.search);
 const roomType = params.get('room');
 
 // db.json에서 room에 대한 정보 읽어오고,
-const roomsURL = `http://localhost:3000/rooms`;
+const roomsURL = `rooms`;
 async function getRoomData() {
   const roomsRes = await fetch(roomsURL, { method: 'GET' });
   const getRooms = await roomsRes.json();
@@ -405,10 +405,10 @@ let holiday = [];
 let myReservations = [];
 let seasons = [];
 let prices = [];
-const holidayURL = `http://localhost:3000/holiday`;
-const reservationURL = `http://localhost:3000/reservation`;
-const seasonURL = `http://localhost:3000/season`;
-const priceURL = `http://localhost:3000/price`;
+const holidayURL = `holiday`;
+const reservationURL = `reservation`;
+const seasonURL = `season`;
+const priceURL = `price`;
 async function init() {
   await getRoomData();
 
@@ -535,7 +535,7 @@ reserveBtn.addEventListener('click', () => {
   }
 
   const query = `?room=${roomType}&in=${checkIn}&out=${checkOut}&guest=${extraGuestCount}`;
-  location.href = `reservation_form.html${query}`;
+  location.href = `html/reservation_form.html${query}`;
 });
 
 // 모달

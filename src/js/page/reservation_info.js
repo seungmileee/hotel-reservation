@@ -1,8 +1,8 @@
 // db.json의 rooms, price, season에서 데이터 가져오기
 // 1. 요소와 URL 가져오기
 const tbody = document.querySelector('tbody');
-const roomsURL = `http://localhost:3000/rooms`;
-const priceURL = `http://localhost:3000/price`;
+const roomsURL = `rooms`;
+const priceURL = `price`;
 
 // 데이터 get 해오는 함수 만들기
 async function getPriceTable() {

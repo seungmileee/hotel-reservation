@@ -34,7 +34,9 @@ spec:
           image: std-harbor.kopoctc.kr/kopo12/kopo12-hotel-reservation:v1
           imagePullPolicy: IfNotPresent
           # Dockerfile CMD Override — watch 경로만 /data/db.json 으로 변경
+          # ENTRYPOINT(node) 뒤에 붙으므로 바이너리 이름 필수
           args:
+            - "json-server"
             - "--watch"
             - "/data/db.json"
             - "--static"

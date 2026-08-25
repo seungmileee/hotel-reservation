@@ -2,3 +2,9 @@ node_modules/
 .vscode/server.log
 server.pid
 server.port
+
+# labport 실행 산출물 (Docker 배포와 무관)
+server.log
+*.pid
+*.port
+start_server.sh

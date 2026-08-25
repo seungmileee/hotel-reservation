@@ -31,7 +31,7 @@ spec:
         - name: regcred          # Harbor 인증 — 차트 밖에서 ns에 미리 생성(CultureLog 패턴)
       containers:
         - name: hotel-reservation
-          image: std-harbor.kopoctc.kr/kopo12/kopo12-hotel-reservation:v1
+          image: std-harbor.kopoctc.kr/kopo12/kopo12-hotel-reservation:v2
           imagePullPolicy: IfNotPresent
           # Dockerfile CMD Override — watch 경로만 /data/db.json 으로 변경
           # ENTRYPOINT(node) 뒤에 붙으므로 바이너리 이름 필수
@@ -73,7 +73,7 @@ spec:
               memory: 128Mi
       initContainers:
         - name: init-seed-db
-          image: std-harbor.kopoctc.kr/kopo12/kopo12-hotel-reservation:v1
+          image: std-harbor.kopoctc.kr/kopo12/kopo12-hotel-reservation:v2
           imagePullPolicy: IfNotPresent
           command:
             - sh

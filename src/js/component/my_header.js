@@ -9,7 +9,7 @@ class MyHeader extends HTMLElement {
             <span>ABOUT</span>
             <ul class="sub">
               <li><a href="html/about.html">호텔 소개</a></li>
-              <li><a href="#">오시는길</a></li>
+              <li><a href="html/about_location.html">오시는길</a></li>
             </ul>
           </li>
           <li>

@@ -1,0 +1,56 @@
+<!-- 오시는 길 페이지 (ABOUT > 오시는길) -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reservation</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/page/about_location.css" />
+    <script src="https://kit.fontawesome.com/ffec4fd550.js" crossorigin="anonymous"></script>
+    <script type="module" src="js/component/my_header.js"></script>
+    <script type="module" src="js/component/my_footer.js"></script>
+    <script type="module" src="js/component/to_the_top.js"></script>
+    <script type="module" src="js/component/my_banner.js"></script>
+  </head>
+  <body>
+    <my-header></my-header>
+    <my-banner title="ABOUT" content="오시는 길" image="assets/img/home_award/hotel_lobby.jpg"></my-banner>
+    <div class="container">
+      <h3 class="reservation-title">오시는 길</h3>
+      <!-- 지도 영역 : 캡처 이미지를 assets/img/about/map.jpg 로 넣으면 표시된다 -->
+      <div class="map-container">
+        <img src="assets/img/about/map.jpg" alt="H HOTEL 약도" />
+      </div>
+      <!-- 주소 / 교통 안내 : 데스크톱 2단, 1000px 이하 1단 -->
+      <div class="info-container">
+        <div class="info-wrapper">
+          <h3>주소</h3>
+          <p>경기도 성남시 분당구 황새울로 196 H HOTEL</p>
+          <p>(우 13590)</p>
+          <p class="info-tel">대표전화 012-345-6789</p>
+        </div>
+        <div class="info-wrapper">
+          <h3>지하철</h3>
+          <p>수인분당선 서현역 3번 출구에서 도보 5분</p>
+          <p>신분당선 판교역 2번 출구에서 차량 10분</p>
+          <p class="info-tel">서현역 3번 출구 직진 후 첫 사거리에서 좌회전</p>
+        </div>
+        <div class="info-wrapper">
+          <h3>버스</h3>
+          <p>서현역·AK플라자 정류장 하차 후 도보 3분</p>
+          <p>광역 9000 / 간선 380 / 마을 3330</p>
+          <p class="info-tel">공항 리무진은 호텔 정문 앞에서 승하차합니다.</p>
+        </div>
+        <div class="info-wrapper">
+          <h3>주차</h3>
+          <p>지하 1~3층 주차장 이용 (투숙객 1실 1대 무료)</p>
+          <p>발렛파킹 운영 (1회 5,000원)</p>
+          <p class="info-tel">전기차 충전 구역 4면을 운영합니다.</p>
+        </div>
+      </div>
+    </div>
+    <my-footer></my-footer>
+    <to-the-top></to-the-top>
+  </body>
+</html>

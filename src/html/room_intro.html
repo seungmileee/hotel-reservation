@@ -1,0 +1,58 @@
+<!-- 객실 소개 페이지 (ROOMS - ?room=standard/deluxe/premium/sweet 파라미터로 4종 커버) -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reservation</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/page/room_intro.css" />
+    <script src="https://kit.fontawesome.com/ffec4fd550.js" crossorigin="anonymous"></script>
+    <script type="module" src="js/component/my_header.js"></script>
+    <script type="module" src="js/component/my_footer.js"></script>
+    <script type="module" src="js/component/to_the_top.js"></script>
+    <script type="module" src="js/component/my_banner.js"></script>
+  </head>
+  <body>
+    <my-header></my-header>
+    <my-banner title="ROOMS" content="객실 안내" image="assets/img/home_rooms/home_room_1.jpg"></my-banner>
+    <div class="container">
+      <h3 id="room-title" class="reservation-title"></h3>
+      <!-- 정상 렌더 영역 : 내용은 js/page/room_intro.js가 db.json에서 채운다 -->
+      <div id="room-content" class="room-content">
+        <div id="room-gallery" class="room-gallery"></div>
+        <div class="spec-container">
+          <div class="spec-wrapper">
+            <h3>면적</h3>
+            <p id="spec-area"></p>
+          </div>
+          <div class="spec-wrapper">
+            <h3>기준 인원</h3>
+            <p id="spec-min"></p>
+          </div>
+          <div class="spec-wrapper">
+            <h3>최대 인원</h3>
+            <p id="spec-capacity"></p>
+          </div>
+          <div class="spec-wrapper">
+            <h3>요금</h3>
+            <p id="spec-price"></p>
+          </div>
+        </div>
+        <div class="desc-container">
+          <p id="desc"></p>
+          <p id="desc-eng"></p>
+        </div>
+        <a id="reserve-link" class="reserve-link">예약하기</a>
+      </div>
+      <!-- 안내 영역 : 잘못된 파라미터거나 데이터를 못 불러왔을 때만 보인다 -->
+      <div id="notice-container" class="notice-container hidden">
+        <p id="notice-text" class="notice-text"></p>
+        <div id="notice-links" class="notice-links"></div>
+      </div>
+    </div>
+    <my-footer></my-footer>
+    <to-the-top></to-the-top>
+    <script src="js/page/room_intro.js"></script>
+  </body>
+</html>

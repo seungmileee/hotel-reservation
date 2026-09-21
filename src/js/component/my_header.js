@@ -15,9 +15,10 @@ class MyHeader extends HTMLElement {
           <li>
             <span>ROOMS</span>
             <ul class="sub">
-              <li><a href="#">ROOM 1</a></li>
-              <li><a href="#">ROOM 2</a></li>
-              <li><a href="#">ROOM 3</a></li>
+              <li><a href="html/room_intro.html?room=standard">STANDARD</a></li>
+              <li><a href="html/room_intro.html?room=deluxe">DELUXE</a></li>
+              <li><a href="html/room_intro.html?room=premium">PREMIUM</a></li>
+              <li><a href="html/room_intro.html?room=sweet">SWEET</a></li>
             </ul>
           </li>
           <li>

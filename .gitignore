@@ -2,3 +2,7 @@ node_modules/
 .vscode/server.log
 server.pid
 server.port
+
+# AI 도구 상태 파일 (레포에 포함하지 않는다)
+.bkit/
+.omc/

@@ -4,13 +4,13 @@ class MyFooter extends HTMLElement {
     footer.innerHTML = `
         <h1>H</h1>
         <div class="icon-container">
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-facebook-f"></i>
-        <i class="fa-brands fa-youtube"></i>
+        <a href="https://www.instagram.com/bctc_koreapolytechnics/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/kopo.cpc/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/channel/UCpoxrusdrwHy7VDZ9koi30Q" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
         </div>
         <div class="text-container">
         <div class="addr-container">
-            <div>경기 성남시 황새울로329번길 5 한국폴리텍대학 융합기술교육원</div>
+            <div>경기도 성남시 분당구 황새울로 196 H HOTEL</div>
             <div class="footer-number">
             <div>사업자등록번호 000-00-0000</div>
             <div>전화 012-345-6789</div>

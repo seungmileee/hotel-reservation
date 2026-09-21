@@ -1,0 +1,59 @@
+<!-- 호텔 소개 페이지 (ABOUT > 호텔 소개) -->
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reservation</title>
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/page/about.css" />
+    <script src="https://kit.fontawesome.com/ffec4fd550.js" crossorigin="anonymous"></script>
+    <script type="module" src="js/component/my_header.js"></script>
+    <script type="module" src="js/component/my_footer.js"></script>
+    <script type="module" src="js/component/to_the_top.js"></script>
+    <script type="module" src="js/component/my_banner.js"></script>
+  </head>
+  <body>
+    <my-header></my-header>
+    <my-banner title="ABOUT" content="호텔 소개" image="assets/img/home_award/hotel_lobby_1.jpg"></my-banner>
+    <div class="container">
+      <!-- 히어로 : 호텔명 + 컨셉 한 줄 -->
+      <div class="about-hero">
+        <h3 class="reservation-title">H HOTEL</h3>
+        <p class="about-concept">도심 한가운데, 리조트의 시간</p>
+      </div>
+      <!-- 소개 본문 : 이미지 + 3문단 -->
+      <div class="intro-container">
+        <img src="assets/img/home_swiper/home_swiper_2_2.jpg" />
+        <div class="intro-content">
+          <p>H HOTEL은 도심 한가운데에서 리조트의 시간을 제안합니다. 일과 일상의 동선 위에 자리하면서도, 문을 열고 들어서는 순간부터는 도시의 속도에서 한 걸음 물러설 수 있도록 공간을 설계했습니다.</p>
+          <p>
+            이동에 쓰는 시간이 줄어들면 머무는 시간이 늘어납니다. 주요 업무지구와 도심 명소를 가까이에 두되, 로비에서 객실과 부대시설로 이어지는 동선은 조용하고 단정하게 정리했습니다. 회의를 마친 평일 저녁에도, 하루를 비운 주말에도 같은 밀도의
+            휴식을 드립니다.
+          </p>
+          <p>4개 타입의 객실과 라운지, 스파, 인피니티풀까지 한 건물 안에서 하루가 완성됩니다. 더 멀리 떠나지 않아도 되는 휴식, H HOTEL이 도심에서 준비한 리조트입니다.</p>
+        </div>
+      </div>
+      <!-- 강조 포인트 3개 : 위치 / 객실 / 부대시설 -->
+      <div class="point-container">
+        <div class="point-wrapper">
+          <img src="assets/img/home_swiper/home_swiper_3_3.jpg" />
+          <h3>LOCATION</h3>
+          <p>주요 업무지구와 도심 명소를 10분대 거리에 둔 위치입니다. 공항 리무진 정류장과 지하철역이 가까워 출발도 복귀도 가볍습니다.</p>
+        </div>
+        <div class="point-wrapper">
+          <img src="assets/img/reservation_select/premium.jpg" />
+          <h3>ROOMS</h3>
+          <p>STANDARD부터 SWEET까지 4개 타입의 객실을 운영합니다. 도시의 소음을 덜어낸 창과 킹사이즈 베딩으로 머무는 동안은 쉬는 일만 남도록 구성했습니다.</p>
+        </div>
+        <div class="point-wrapper">
+          <img src="assets/img/home_event/home_event_7.jpg" />
+          <h3>FACILITIES</h3>
+          <p>인피니티풀과 스파, 라운지와 키즈클럽을 갖췄습니다. 체크인부터 체크아웃까지 호텔 밖으로 나서지 않아도 하루가 채워집니다.</p>
+        </div>
+      </div>
+    </div>
+    <my-footer></my-footer>
+    <to-the-top></to-the-top>
+  </body>
+</html>

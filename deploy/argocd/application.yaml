@@ -1,0 +1,46 @@
+# ─────────────────────────────────────────────────────────────
+# ArgoCD Application — 호텔 예약 사이트
+#
+# GitOps 배포. GitLab(std-gitlab) 의 deploy/k8s 순수 YAML 을 추적한다.
+# (CultureLog 는 Helm 차트였지만, 이 프로젝트는 값 오버라이드/비밀값이
+#  없으므로 Helm 없이 순수 YAML 로 단순화했다.)
+#
+# 이 파일은 deploy/argocd/ 에 둬서 동기화 대상(deploy/k8s)에서 제외했다.
+# → Application 자체는 kubectl 로 직접 apply 한다:
+#      kubectl apply -f deploy/argocd/application.yaml
+#
+# 사전 조건:
+#   1) ArgoCD repo Secret(GitLab PAT) — 기존 repo-gitlab-culturelog 패턴 참고.
+#      이 프로젝트도 동일 GitLab(kopo121) 이므로 기존 repo Secret 재사용 가능.
+#   2) Harbor 인증 regcred Secret — hotel-reservation ns 에 미리 생성
+#      (default ns 것 복사. Secret 은 ns-scoped 라 그대로 못 씀).
+#   3) syncOptions CreateNamespace=false → namespace.yaml 이 ns를 만들지만
+#      Application 등록 전 ns가 없으면 첫 sync가 실패할 수 있음. 그때는
+#      kubectl create namespace hotel-reservation 먼저.
+# ─────────────────────────────────────────────────────────────
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hotel-reservation
+  namespace: argocd                # Application 리소스 자체는 argocd ns 에 둔다
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io   # App 삭제 시 하위 리소스도 정리(cascaded delete)
+spec:
+  project: default
+
+  source:
+    repoURL: https://std-gitlab.kopoctc.kr/kopo121/hotel-reservation.git
+    targetRevision: main
+    path: deploy/k8s              # 순수 YAML 디렉토리
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: hotel-reservation
+
+  syncPolicy:
+    automated:
+      prune: true              # Git 에서 삭제된 리소스는 클러스터에서도 제거
+      selfHeal: true           # 수동 변경이 Git 상태로 되돌아감(GitOps 단일 진실 원천)
+    syncOptions:
+      - CreateNamespace=false      # namespace.yaml 이 직접 ns를 관리
+      - ApplyOutOfSyncOnly=true

@@ -3,6 +3,12 @@ node_modules/
 server.pid
 server.port
 
+# labport 실행 산출물 (Docker 배포와 무관)
+server.log
+*.pid
+*.port
+start_server.sh
+
 # AI 도구 상태 파일 (레포에 포함하지 않는다)
 .bkit/
 .omc/

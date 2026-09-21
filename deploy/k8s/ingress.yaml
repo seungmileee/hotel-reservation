@@ -1,0 +1,24 @@
+# ─────────────────────────────────────────────────────────────
+# Ingress (Traefik) — CultureLog 와 host 규칙 동일({studentId}-{app}.std.kopoctc.kr)
+# TLS 없음(HTTP), 어노테이션 없음 — CultureLog 패턴 그대로.
+# ─────────────────────────────────────────────────────────────
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kopo12-hotel-reservation
+  namespace: hotel-reservation
+  labels:
+    app: kopo12-hotel-reservation
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: kopo12-hotel-reservation.std.kopoctc.kr
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kopo12-hotel-reservation
+                port:
+                  number: 3000

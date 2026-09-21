@@ -1,0 +1,11 @@
+# ─────────────────────────────────────────────────────────────
+# Namespace — 호텔 예약 사이트 전용
+# CultureLog 패턴과 동일하게 앱 전용 ns 하나에 모든 리소스 배포.
+# ArgoCD syncOptions CreateNamespace=false 이므로 이 파일로 ns 생성.
+# ─────────────────────────────────────────────────────────────
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hotel-reservation
+  labels:
+    app.kubernetes.io/name: hotel-reservation

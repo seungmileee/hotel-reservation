@@ -1,0 +1,88 @@
+# ─────────────────────────────────────────────────────────────
+# Deployment — json-server 0.17.4 (정적 서빙 + REST API)
+#
+# Dockerfile CMD는 --watch db.json(/app/db.json) 이지만,
+# args 로 덮어써서 watch 대상만 /data/db.json(PVC) 으로 변경.
+# --static src 는 이미지 내 /app/src 그대로(마운트 대상 아님).
+#
+# initContainer init-seed-db: PVC가 비어 있으면(최초 기동)
+# 이미지에 굽혀둔 씨앗 db.json 을 /data 로 복사. 이미 있으면 건드리지 않음.
+# ─────────────────────────────────────────────────────────────
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kopo12-hotel-reservation
+  namespace: hotel-reservation
+  labels:
+    app: kopo12-hotel-reservation
+spec:
+  replicas: 1                    # 단일 파드 + PVC(RWO) → 1대만
+  strategy:
+    type: Recreate               # RWO 볼륨 충돌 방지 + 단일 파드 → 롤링 대신 재생성
+  selector:
+    matchLabels:
+      app: kopo12-hotel-reservation
+  template:
+    metadata:
+      labels:
+        app: kopo12-hotel-reservation
+    spec:
+      imagePullSecrets:
+        - name: regcred          # Harbor 인증 — 차트 밖에서 ns에 미리 생성(CultureLog 패턴)
+      containers:
+        - name: hotel-reservation
+          image: std-harbor.kopoctc.kr/kopo12/kopo12-hotel-reservation:v2
+          imagePullPolicy: IfNotPresent
+          # Dockerfile CMD Override — watch 경로만 /data/db.json 으로 변경
+          # ENTRYPOINT(node) 뒤에 붙으므로 바이너리 이름 필수
+          args:
+            - "json-server"
+            - "--watch"
+            - "/data/db.json"
+            - "--static"
+            - "src"
+            - "--host"
+            - "0.0.0.0"
+            - "--port"
+            - "3000"
+          ports:
+            - containerPort: 3000
+              name: http
+          volumeMounts:
+            - name: data
+              mountPath: /data
+          # json-server 는 별도 헬스 엔드포인트가 없어 루트(/)로 검사
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 20
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 200m
+              memory: 128Mi
+      initContainers:
+        - name: init-seed-db
+          image: std-harbor.kopoctc.kr/kopo12/kopo12-hotel-reservation:v2
+          imagePullPolicy: IfNotPresent
+          command:
+            - sh
+            - -c
+            - "[ -f /data/db.json ] || cp /app/db.json /data/db.json"
+          volumeMounts:
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: kopo12-hotel-reservation-data

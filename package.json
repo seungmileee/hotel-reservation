@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "json-server --watch db.json"
+    "start": "json-server --watch db.json --static src --host 0.0.0.0"
   },
   "dependencies": {
     "json-server": "0.17.4"
